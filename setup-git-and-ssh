@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 vared -p 'Enter your full name (e.g. John Doe): ' -c fullname &&
 git config --global user.name $fullname &&
-vared -p 'Enter your e-mail (john@johndoe.com): ' -c email &&
+vared -p 'Enter the e-mail you use for GitHub (john@johndoe.com): ' -c email &&
 git config --global user.email $email;
 git config --global pull.ff "only";
 git config --global init.defaultBranch main
