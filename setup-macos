@@ -1,7 +1,42 @@
 #!/usr/bin/env zsh
 # Set some macOS settings
-defaults write com.apple.dock autohide-time-modifier -float 0.25;killall Dock
-defaults write com.apple.dock autohide-delay -float 0;killall Dock
-defaults write -g KeyRepeat -int 1
+
+# set dock autohide timings
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-time-modifier -float 0.1
+defaults write com.apple.dock autohide-delay -float 0
+
+# make hidden apps transparent
+defaults write com.apple.dock showhidden -bool TRUE
+
+# remove recent apps from dock
+defaults write com.apple.dock show-recents -bool FALSE
+
+# set tile size
+defaults write com.apple.dock tilesize -float 55
+
+# set minimize effect
+defaults write com.apple.dock mineffect -string "scale"
+
+# set key repeat
+defaults write -g KeyRepeat -int 4
 defaults write -g InitialKeyRepeat -int 25
-defaults write com.apple.Finder AppleShowAllFiles true; killall Finder
+
+# show all files
+defaults write com.apple.finder AppleShowAllFiles true
+
+# hide desktop
+defaults write com.apple.finder CreateDesktop false
+
+# make home folder default location
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+# disable autocorrection
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+
+# remove disk eject warning
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && sudo pkill diskarbitrationd
+
+# restart Dock and Finder
+killall Dock
+killall Finder

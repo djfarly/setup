@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+# Install macOS apps
+export LANG=en_US.UTF-8;
+for x in keycastr obs spotify the-unarchiver slack reaper google-chrome keepasscx obsidian zoom; do brew install --cask $x; done;
+for y in yarn; do brew install $y; done;
